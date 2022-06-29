@@ -37,5 +37,6 @@ jobs:
         # <корневая_папка_infra_actions>/<папка проекта>/manage.py
         cd infra_project/
         # запуск сервера
+        python manage.py runserver 0.0.0.0:8000
         # запустить написанные разработчиком тесты
         python manage.py test
