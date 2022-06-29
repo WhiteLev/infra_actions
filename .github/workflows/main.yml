@@ -36,5 +36,7 @@ jobs:
         # перейти в папку, содержащую manage.py -
         # <корневая_папка_infra_actions>/<папка проекта>/manage.py
         cd infra_project/
+        # запуск сервера
+        python manage.py server
         # запустить написанные разработчиком тесты
         python manage.py test
