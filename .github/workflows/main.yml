@@ -53,8 +53,8 @@ jobs:
         # Запуск скрипта авторизации на Docker Hub
         uses: docker/login-action@v1
         with:
-          username: lev1992
-          password: Лшщлгыршт56ю
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: $ {{ secrets.DOCKER_PASSWORD }}
       - name: Push to Docker Hub
         # Пуш образа в Docker Hub
         uses: docker/build-push-action@v2
@@ -71,10 +71,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker pull lev1992/gates:v1.01.07
+            sudo docker pull lev1992/gates
             # Остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 lev1992/gates:v1.01.07
+            sudo docker run --rm -d -p 5000:5000 lev1992/gates
