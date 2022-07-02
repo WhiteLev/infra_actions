@@ -60,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: lev1992/gates:v2.02.07
+          tags: lev1992/gates:v1.02.07
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
@@ -74,7 +74,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker pull lev1992/gates:v2.02.07
+            sudo docker pull lev1992/gates:v1.02.07
             # Остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 lev1992/gates:v2.02.07
+            sudo docker run --rm -d -p 5000:5000 lev1992/gates:v1.02.07
