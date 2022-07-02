@@ -74,7 +74,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker pull lev1992/gates:v1.02.07
+            sudo docker pull lev1992/gates
             # Остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 lev1992/gates:v1.02.07
+            sudo docker run --rm -d -p 5000:5000 lev1992/gates
